@@ -12,25 +12,39 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+// HTTP RESPONSE
 
 // basic
-$router->get('/key', 'LuluController@getKey');
+$router->get('/', function(){
+    return 'Hello World';
+});
 
-// naming controller routes
-$router->get('/profile/mbasss', 'LuluController@mbasssProfile');
+// Get Input using Request
+$router->get('profile', 'LuluController@userProfile');
+// localhost:8000/profile?id=1&name=Mbasss Code&username=mbasss&email=mbassscode@gmail.com&password=123
 
-// with middleware in route
-$router->get('profile', [
-    'middleware' => 'admin',
-    'uses' => 'LuluController@profile'
-]); //http://localhost:8000/profile?role=admin
 
-// with middleware in controller
-$router->get('about', 'LuluController@about');
+// Responese Object
+// $router->get('home', function(){
+//     return response($content, $status)
+//             ->header('Contetent-Type', $value);
+// });
 
-// Using despedency in controller
-$router->get('foo/bar', 'LuluController@getData');
+$router->get('data', function(){
+    // return response('WOW', 201)
+    //     ->header('Content-Type', 'application/json');
+
+    // show data
+    // walaupun tanpa header akan menampilkan informasi json karena yang ditampilkan merupakan data json
+    // $data = [
+    //     'status' => 'success',
+    //     'data' => 'Test Data'
+    // ];
+    // return response($data, 200);
+
+    // cara lain
+    return response()->json([
+        'message' => 'Failed',
+        'status' => false
+    ], 404);
+});

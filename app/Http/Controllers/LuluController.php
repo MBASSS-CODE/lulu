@@ -50,4 +50,36 @@ class LuluController extends Controller
             return 'Fail';
         }
     }
+
+    // REQUEST
+    // Get Input using Request
+    public function userProfile (Request $request)
+    {
+        // show singe data
+        // return $request->name;
+
+        // Show all as array data
+        // $user = [
+        //     'id' => $request->id,
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ];
+        // return $user;
+
+        // show aLL using simple way
+        // return $request->all();
+
+        // show if no data send using default value 
+        // return $request->input('name', 'Default Name');
+
+        // condition 
+        // has, filled, except
+        if($request->has(['name', 'username'])){
+            return "Correct Data";
+        } else {
+            return "Wrong Data";
+        }
+    }
 }
