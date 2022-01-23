@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "f61914a7-cd88-4ed8-b001-24941ef2e9b5",
+		"name": "Lulu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/register?name=Indra&username=mbasss&email=mbassscode@gmail.com&password=123123",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Indra"
+						},
+						{
+							"key": "username",
+							"value": "mbasss"
+						},
+						{
+							"key": "email",
+							"value": "mbassscode@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "123123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/login?email=mbassscode@gmail.com&password=123123",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "mbassscode@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "123123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_token",
+						"value": "bearer clJpUWp5UjlEbE9HZmpIQTJacHZubEtzMUZEbVl3eXd4bmtVUlZjUQ==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:8000/user/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"1"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "clJpUWp5UjlEbE9HZmpIQTJacHZubEtzMUZEbVl3eXd4bmtVUlZjUQ==",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
