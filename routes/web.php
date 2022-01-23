@@ -12,39 +12,10 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-// HTTP RESPONSE
-
-// basic
-$router->get('/', function(){
-    return 'Hello World';
+$router->get('/', function () use ($router) {
+    return $router->app->version();
 });
 
-// Get Input using Request
-$router->get('profile', 'LuluController@userProfile');
-// localhost:8000/profile?id=1&name=Mbasss Code&username=mbasss&email=mbassscode@gmail.com&password=123
-
-
-// Responese Object
-// $router->get('home', function(){
-//     return response($content, $status)
-//             ->header('Contetent-Type', $value);
-// });
-
-$router->get('data', function(){
-    // return response('WOW', 201)
-    //     ->header('Content-Type', 'application/json');
-
-    // show data
-    // walaupun tanpa header akan menampilkan informasi json karena yang ditampilkan merupakan data json
-    // $data = [
-    //     'status' => 'success',
-    //     'data' => 'Test Data'
-    // ];
-    // return response($data, 200);
-
-    // cara lain
-    return response()->json([
-        'message' => 'Failed',
-        'status' => false
-    ], 404);
-});
+$router->post('/register', 'AuthController@register');
+$router->post('/login', 'AuthController@login');
+$router->get('/user/{id}', 'UserController@show');
